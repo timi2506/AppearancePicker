@@ -124,7 +124,7 @@ struct ConditionalModifier<Modifier: ViewModifier>: ViewModifier {
 }
 
 public struct AppearanceItem<ItemType: Hashable>: Identifiable {
-    public init(value: ItemType, label: @escaping () -> some View, image: Image) {
+    public init(value: ItemType, image: Image, label: @escaping () -> some View) {
         self.value = value
         self.label = AnyView(label())
         self.image = image
