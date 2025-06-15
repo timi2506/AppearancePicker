@@ -55,13 +55,12 @@ public struct AppearancePicker<ItemType: Hashable, Style: ShapeStyle, L: Layout,
                 }
                 .contentShape(Rectangle())
                 .onTapGesture {
-                    withAnimation(animation) {
-                        selection = value.value
-                    }
+                    selection = value.value
                 }
                 .padding(5)
             }
         }
+        .animation(.spring, value: selection)
         .conditionalModifier(condition: needsScroll, modifier: ScrollableModifier(axes: .horizontal))
     }
 }
